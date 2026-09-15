@@ -11,6 +11,7 @@ import { ISSUE_GROUP_BY_OPTIONS } from "@plane/constants";
 import type { ISvgIcons } from "@plane/propel/icons";
 import {
   LinkIcon,
+  PageIcon,
   CycleIcon,
   StatePropertyIcon,
   ModuleIcon,
@@ -39,6 +40,7 @@ import {
   SpreadsheetModuleColumn,
   SpreadsheetCycleColumn,
   SpreadsheetLinkColumn,
+  SpreadsheetPageColumn,
   SpreadsheetPriorityColumn,
   SpreadsheetStartDateColumn,
   SpreadsheetStateColumn,
@@ -90,6 +92,7 @@ export const SpreadSheetPropertyIconMap: Record<string, FC<ISvgIcons>> = {
   StartDatePropertyIcon: StartDatePropertyIcon,
   StatePropertyIcon: StatePropertyIcon,
   Link2: LinkIcon,
+  PageIcon: PageIcon,
   Paperclip: Paperclip,
   LayersIcon: LayersIcon,
 };
@@ -103,6 +106,7 @@ export const SPREADSHEET_COLUMNS: { [key in keyof IIssueDisplayProperties]: TSpr
   modules: SpreadsheetModuleColumn,
   cycle: SpreadsheetCycleColumn,
   link: SpreadsheetLinkColumn,
+  page: SpreadsheetPageColumn,
   priority: SpreadsheetPriorityColumn,
   start_date: SpreadsheetStartDateColumn,
   state: SpreadsheetStateColumn,
