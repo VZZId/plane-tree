@@ -51,6 +51,7 @@ import type { TPageInstance } from "@/store/pages/base-page";
 // local imports
 import { PageContentLoader } from "../loaders/page-content-loader";
 import { PageEditorHeaderRoot } from "./header";
+import { PageSubPagesTree } from "./sub-pages-tree";
 import { PageContentBrowser } from "./summary";
 import { PageEditorTitle } from "./title";
 
@@ -273,7 +274,7 @@ export const PageEditorBody = observer(function PageEditorBody(props: Props) {
   );
 
   const blockWidthClassName = cn(
-    "mx-auto block w-full max-w-[720px] bg-transparent transition-all duration-200 ease-in-out",
+    "mx-auto block w-full max-w-[960px] bg-transparent transition-all duration-200 ease-in-out",
     {
       "max-w-[1152px]": isFullWidth,
     }
@@ -313,6 +314,13 @@ export const PageEditorBody = observer(function PageEditorBody(props: Props) {
           <div className="page-header-container group/page-header">
             <div className={blockWidthClassName}>
               <PageEditorHeaderRoot page={page} projectId={projectId} />
+              <PageSubPagesTree
+                className="mt-1"
+                page={page}
+                projectId={projectId}
+                workspaceSlug={workspaceSlug}
+                storeType={storeType}
+              />
             </div>
           </div>
           <CollaborativeDocumentEditorWithRef
