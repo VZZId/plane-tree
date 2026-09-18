@@ -468,6 +468,8 @@ export default {
     manage_widgets: "Manage widgets",
     title: "Home",
     star_us_on_github: "Star us on GitHub",
+    update_available: "Update available",
+    update_available_tooltip: "This instance runs {current}. The latest upstream release is {latest}.",
   },
   link: {
     modal: {
