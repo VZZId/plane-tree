@@ -37,6 +37,31 @@
       "title": "Quicklink",
       "title_plural": "Quicklinks"
     },
+    "time_tracking": {
+      "title": "Time tracking",
+      "no_timer": "No timer running",
+      "today": "Today",
+      "this_week": "This week",
+      "open": "Open time tracking"
+    },
+    "assigned_work": {
+      "title": "Assigned to me",
+      "empty": "Nothing open is assigned to you.",
+      "view_all": "View all",
+      "showing": "Showing the {shown} most urgent of {total}",
+      "groups": {
+        "overdue": "Overdue",
+        "today": "Due today",
+        "next_7_days": "Due in the next 7 days",
+        "later": "Due later",
+        "no_due_date": "No due date"
+      },
+      "due_relative": {
+        "overdue": "{days, plural, one {# day} other {# days}} overdue",
+        "today": "Today",
+        "tomorrow": "Tomorrow"
+      }
+    },
     "recents": {
       "title": "Recents",
       "empty": {
