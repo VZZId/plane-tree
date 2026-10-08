@@ -21,7 +21,9 @@ import { useProject } from "@/hooks/store/use-project";
 // local imports
 import { StickiesWidget } from "../stickies/widget";
 import { HomeLoader, NoProjectsEmptyState, RecentActivityWidget } from "./widgets";
+import { AssignedWorkWidget } from "./widgets/assigned-work";
 import { DashboardQuickLinks } from "./widgets/links";
+import { TimeTrackingWidget } from "./widgets/time-tracking";
 import { ManageWidgetsModal } from "./widgets/manage";
 
 export const HOME_WIDGETS_LIST: {
@@ -31,6 +33,16 @@ export const HOME_WIDGETS_LIST: {
     title: string;
   };
 } = {
+  time_tracking: {
+    component: TimeTrackingWidget,
+    fullWidth: false,
+    title: "home.time_tracking.title",
+  },
+  assigned_work: {
+    component: AssignedWorkWidget,
+    fullWidth: false,
+    title: "home.assigned_work.title",
+  },
   quick_links: {
     component: DashboardQuickLinks,
     fullWidth: false,

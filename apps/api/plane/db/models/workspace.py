@@ -375,6 +375,8 @@ class WorkspaceHomePreference(BaseModel):
     """Preference for the home page of a workspace for a user"""
 
     class HomeWidgetKeys(models.TextChoices):
+        TIME_TRACKING = "time_tracking", "Time Tracking"
+        ASSIGNED_WORK = "assigned_work", "Assigned Work"
         QUICK_LINKS = "quick_links", "Quick Links"
         RECENTS = "recents", "Recents"
         MY_STICKIES = "my_stickies", "My Stickies"

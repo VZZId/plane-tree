@@ -66,6 +66,21 @@ A link only shows the recipient the entries they're allowed to see.
 (up to 50,000 rows), or the pivot table as CSV. Start and end times are shown in
 each person's own timezone.
 
+## Home widgets
+
+The workspace **Home** page has two widgets. You can turn them off or reorder them
+with **Manage widgets**:
+
+- **Time tracking** shows the running timer, which you can stop from the widget.
+  If no timer is running you can start one or log time. It also shows your total
+  for today and this week, and both totals count up while the timer runs.
+  Guests don't see this widget.
+- **Assigned to me** lists your open work items (backlog, todo and in progress),
+  grouped as _Overdue_, _Due today_, _Due in the next 7 days_, _Due later_ and
+  _No due date_. Each group is sorted by due date, then priority. Work items
+  without a due date are sorted by creation date, oldest first. Click a work item
+  to open it, or use its play button to start the timer on it.
+
 ## Billable time
 
 Every entry is billable or non-billable. Project admins can make new entries in

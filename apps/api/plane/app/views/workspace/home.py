@@ -26,36 +26,31 @@ class WorkspaceHomePreferenceViewSet(BaseAPIView):
 
         get_preference = WorkspaceHomePreference.objects.filter(user=request.user, workspace_id=workspace.id)
 
-        create_preference_keys = []
+        existing_sort_orders = dict(get_preference.values_list("key", "sort_order"))
 
         keys = [
             key
             for key, _ in WorkspaceHomePreference.HomeWidgetKeys.choices
             if key not in ["quick_tutorial", "new_at_plane"]
         ]
+        missing_keys = [key for key in keys if key not in existing_sort_orders]
 
-        sort_order_counter = 1
-
-        for preference in keys:
-            if preference not in get_preference.values_list("key", flat=True):
-                create_preference_keys.append(preference)
-
-                sort_order = 1000 - sort_order_counter
-
-                preference = WorkspaceHomePreference.objects.bulk_create(
-                    [
-                        WorkspaceHomePreference(
-                            key=key,
-                            user=request.user,
-                            workspace=workspace,
-                            sort_order=sort_order,
-                        )
-                        for key in create_preference_keys
-                    ],
-                    batch_size=10,
-                    ignore_conflicts=True,
+        # Widgets are shown highest sort_order first. Missing widgets go above the ones the user
+        # already has (so a newly added widget shows up at the top), in HomeWidgetKeys order.
+        top_sort_order = max(existing_sort_orders.values(), default=999)
+        WorkspaceHomePreference.objects.bulk_create(
+            [
+                WorkspaceHomePreference(
+                    key=key,
+                    user=request.user,
+                    workspace=workspace,
+                    sort_order=top_sort_order + len(missing_keys) - index,
                 )
-                sort_order_counter += 1
+                for index, key in enumerate(missing_keys)
+            ],
+            batch_size=10,
+            ignore_conflicts=True,
+        )
 
         preference = WorkspaceHomePreference.objects.filter(user=request.user, workspace_id=workspace.id)
 
