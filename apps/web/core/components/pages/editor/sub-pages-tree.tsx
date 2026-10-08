@@ -106,7 +106,7 @@ export const PageSubPagesTree = observer(function PageSubPagesTree(props: Props)
         <ChevronRightIcon className={cn("size-3.5 transition-transform", { "rotate-90": isExpanded })} />
         {childPageIds.length} {childPageIds.length === 1 ? "sub-page" : "sub-pages"}
       </button>
-      {isExpanded && <div className="mt-1 space-y-1">{renderTree(childPageIds, 0)}</div>}
+      {isExpanded && <div className="mt-0.5 space-y-0.5">{renderTree(childPageIds, 0)}</div>}
     </div>
   );
 });

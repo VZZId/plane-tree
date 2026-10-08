@@ -39,6 +39,7 @@ export const PagesVersionEditor = observer(function PagesVersionEditor(props: TV
   const displayConfig: TDisplayConfig = {
     fontSize,
     fontStyle,
+    lineSpacing: "small",
     wideLayout: true,
   };
 
