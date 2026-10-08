@@ -180,6 +180,8 @@ export const PageEditorBody = observer(function PageEditorBody(props: Props) {
     () => ({
       fontSize,
       fontStyle,
+      // pages use the tighter line spacing
+      lineSpacing: "small",
       wideLayout: isFullWidth,
     }),
     [fontSize, fontStyle, isFullWidth]
@@ -278,9 +280,9 @@ export const PageEditorBody = observer(function PageEditorBody(props: Props) {
   );
 
   const blockWidthClassName = cn(
-    "mx-auto block w-full max-w-[960px] bg-transparent transition-all duration-200 ease-in-out",
+    "page-content-column block w-full max-w-[960px] bg-transparent transition-all duration-200 ease-in-out",
     {
-      "max-w-[1152px]": isFullWidth,
+      "wide-layout max-w-[1152px]": isFullWidth,
     }
   );
 

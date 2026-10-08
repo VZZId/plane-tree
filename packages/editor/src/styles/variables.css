@@ -15,6 +15,8 @@
   --wide-content-width: 1152px;
   --normal-content-margin: 20px;
   --wide-content-margin: 96px;
+  /* how far from the left the page content sits once there is room; narrower than that, it centres */
+  --page-content-left-offset: 64px;
   /* end layout */
 }
 
@@ -193,6 +195,27 @@
 }
 /* end font size and style */
 
+/* pages are denser than the other editors: a slightly smaller default text size */
+#page-content-container .editor-container.large-font {
+  --font-size-h1: 1.5rem;
+  --font-size-h2: 1.3125rem;
+  --font-size-h3: 1.1875rem;
+  --font-size-h4: 1.0625rem;
+  --font-size-h5: 1rem;
+  --font-size-h6: 0.9375rem;
+  --font-size-regular: 0.9375rem;
+  --font-size-code: 0.8125rem;
+
+  --line-height-h1: 2rem;
+  --line-height-h2: 1.75rem;
+  --line-height-h3: 1.625rem;
+  --line-height-h4: 1.5rem;
+  --line-height-h5: 1.375rem;
+  --line-height-h6: 1.375rem;
+  --line-height-regular: 1.375rem;
+  --line-height-code: 1.375rem;
+}
+
 /* layout config */
 #page-toolbar-container {
   container-name: page-toolbar-container;
@@ -205,7 +228,7 @@
       --header-width: var(--wide-content-width);
     }
 
-    padding-left: calc(((100% - var(--header-width)) / 2) - 10px);
+    padding-left: calc(max(0px, min(var(--page-content-left-offset), calc((100% - var(--header-width)) / 2))) - 10px);
   }
 }
 
@@ -223,24 +246,42 @@
     .editor-container.page-title-editor .ProseMirror,
     .document-editor-loader {
       max-width: var(--editor-content-width);
-      margin: 0 auto;
+      margin-left: max(0px, min(var(--page-content-left-offset), calc((100% - var(--editor-content-width)) / 2)));
+      margin-right: auto;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .editor-container.document-editor .ProseMirror {
       & > *:not(.editor-full-width-block) {
         max-width: var(--editor-content-width);
-        margin-left: auto !important;
+        margin-left: max(
+          0px,
+          min(var(--page-content-left-offset), calc((100% - var(--editor-content-width)) / 2))
+        ) !important;
         margin-right: auto !important;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       & > .editor-full-width-block {
         max-width: 100%;
-        padding-inline-start: calc((100% - var(--editor-content-width)) / 2);
+        padding-inline-start: max(
+          0px,
+          min(var(--page-content-left-offset), calc((100% - var(--editor-content-width)) / 2))
+        );
         padding-inline-end: var(--wide-content-margin);
       }
     }
+  }
+}
+
+/* the page header lines up with the content: see .frame-renderer above */
+.page-content-column {
+  --column-width: var(--normal-content-width);
+  margin-left: max(0px, min(var(--page-content-left-offset), calc((100% - var(--column-width)) / 2)));
+  margin-right: auto;
+
+  &.wide-layout {
+    --column-width: var(--wide-content-width);
   }
 }
 

@@ -25,6 +25,12 @@
   line-height: 2.375rem;
 }
 
+/* pages are denser than the editor default */
+#page-content-container .page-title-editor.large-font .ProseMirror h1 {
+  font-size: 1.625rem;
+  line-height: 2rem;
+}
+
 /* Focus state */
 .page-title-editor.active-editor .ProseMirror {
   box-shadow: none;

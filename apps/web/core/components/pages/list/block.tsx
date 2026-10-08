@@ -112,7 +112,7 @@ export const PageListBlock = observer(function PageListBlock(props: TPageListBlo
             )}
           </div>
         }
-        className="min-h-0 gap-2 py-2.5"
+        className="min-h-0 gap-2 py-2 lg:py-2 xl:py-2"
         title={getPageName(name)}
         itemLink={getRedirectionLink()}
         actionableItems={<BlockItemAction page={page} parentRef={parentRef} storeType={storeType} />}
