@@ -385,6 +385,7 @@ ADMIN_SESSION_COOKIE_NAME = "admin-session-id"
 ADMIN_SESSION_COOKIE_AGE = int(os.environ.get("ADMIN_SESSION_COOKIE_AGE", 3600))
 
 # CSRF cookies
+CSRF_COOKIE_NAME = os.environ.get("CSRF_COOKIE_NAME", "plane-csrftoken")
 CSRF_COOKIE_SECURE = secure_origins
 CSRF_COOKIE_HTTPONLY = True
 CSRF_TRUSTED_ORIGINS = cors_allowed_origins
